@@ -31,15 +31,21 @@ body {
 	@include content-font;
 	font-size: 14px;
 	line-height: 1;
+	overflow-x: hidden;
 }
 // header styling
 .am-header {
 	background: url(../img/header-bg.jpg);
-	padding: 26px 0 15px;
+	padding: 26px 0 18px;
 	@media screen and (max-width: 1023px) {
-	padding-top: 75px;
-	padding-bottom: 50px;
+		padding-top: 75px;
+		padding-bottom: 50px;
 	}
+}
+
+.am-logo {
+	display: inline-block;
+	padding-left: 20px;
 }
 
 .am-authentication {
@@ -52,6 +58,7 @@ body {
 	&__list {
 		float: right;
 		margin-top: -26px;
+		margin-right: 9px;
 		@media screen and (max-width: 1023px) {
 			float: none;
 			margin-top: 0;
@@ -67,24 +74,21 @@ body {
 		transition: background-color .2s ease-in, border-right .2s ease-in, border-left .2s ease-in, color .2s ease-in;
 		padding: 9px 10px 8px 10px !important;
 		&:hover {
-			background-color: #FFF;
-			color:$secondary-content-color;
-			& .am-authentication__icon {
-				fill: $secondary-content-color;
-			}
+			background-color: #d93655;
+			color: #FFF;
 		}
 		&--register {
 			border-bottom-left-radius: 3px;
 			border-right: 1px solid #3C89CF;
 			&:hover {
-				border-right: 1px solid #FFF;
+				border-right: 1px solid #d93655;
 			}
 		}
 		&--login {
 			border-bottom-right-radius: 3px;
 			border-left: 1px solid #1d659c; 
 			&:hover {
-				border-left: 1px solid #FFF;
+				border-left: 1px solid #d93655;
 			}
 		}
 	}
@@ -101,7 +105,7 @@ body {
 .am-navigation {
 	float: right;
 	padding-top: 35px;
-	padding-right: 6px;
+	padding-right: 17px;
 	// padding-left: 100px;
 	@media screen and (max-width: 1023px) {
 		float: none;
@@ -111,9 +115,10 @@ body {
 		float: none;
 		display: block;
 		text-align: center;
+		padding-right: 0;
 	}
 	&__item {
-		padding-left: 45px;
+		padding-left: 49px;
 		@media screen and (max-width: 1023px) {
 
 			padding-left: 0;
@@ -145,7 +150,7 @@ body {
 .am-section {
 	background: url(../img/bg.jpg) center center no-repeat;
 	background-size: cover;
-	padding: 40px 0 200px 0;
+	padding: 42px 0 200px 0;
 }
 
 .added {
@@ -183,23 +188,19 @@ body {
 }
 .am-presents {
 	background: url(../img/header-bg.jpg);
-	padding: 20px 29px 0 30px;
+	padding: 20px 28px 0 35px;
 	position: relative;
 	border-radius: 3px;
+	margin: 0 0px 0 17px;
 	@media screen and (max-width: 1023px) {
-		margin-bottom: 50px;
-	}
-	@media screen and (max-width: 450px) {
-		padding-right: 10px;
-		padding-left: 10px;
+		max-width: 573px;
+		margin: 0 auto;
 	}
 	&__item {
 		padding-top: 15px;
 		padding-bottom: 15px;
 		cursor: pointer;
 		position: relative;
-		padding-left: 0.84375rem;
-		padding-right: 0.84375rem;
 	}
 	&__title {
 		@include content-font;
@@ -284,6 +285,7 @@ body {
 	}
 	&__container {
 		overflow-y: hidden;
+		overflow-x: hidden;
 		max-height: 660px;
 		margin-right: -0.84375rem;
 		margin-left: -0.84375rem;
@@ -293,6 +295,8 @@ body {
 		background-color: rgba(224, 224, 224, 0.95);
 		border-radius: 4px;
 		border: 6px solid rgba(224, 224, 224, 0.95);
+		left: 15px;
+		top: -13px;
 	}
 	.mCSB_dragger {
 		width: 6px;
@@ -352,7 +356,7 @@ body {
 		width: 152px;
 		height: 152px;
 		position: relative;
-		box-shadow: 0px 3px 3px grey;
+		box-shadow: 0px 2px 1px #999;
 		@media screen and (min-width: 1024px) and (max-width: 1200px) {
 			width: 125px;
 			height: 125px;
@@ -380,9 +384,6 @@ body {
 			width: 96px;
 			height: 96px;
 		}
-		// @media screen and (min-width: 640px) and (max-width: 1023px) {
-			
-		// }
 	}
 }
 .am-back-button {
@@ -415,6 +416,14 @@ body {
 }
 
 .am-wishlist {
+	margin: 0 10px 0 26px;
+	@media screen and (max-width: 1160px) {
+		margin-left: 4px;
+	}
+	@media screen and (max-width: 1023px) {
+		max-width: 354px;
+		margin: 50px auto 0;
+	}
 	&__share {
 		position: absolute;
 		left: 4px;
@@ -425,16 +434,15 @@ body {
 		border-radius: 3px;
 		padding-top: 4px;
 		cursor: pointer;
-		transition: box-shadow .2s ease-in, border .2s ease-in;
+		transition: background-color .2s ease-in, border .2s ease-in, box-shadow .2s ease-in;
+		box-shadow: inset 0 1px 1px #3f8abf;
 		&:hover {
-			box-shadow: inset -1px -1px 10px #fff;
-			border: 1px solid lighten(#033357, 25%);
-		}
-		&:hover &--path {
-			fill: #d93655;
+			box-shadow: none;
+			background-color: #d93655;
+			border: 1px solid #d93655;
 		}
 		&--path {
-			transition: fill .2s ease-out;
+			
 			fill: #fff;
 		}
 	}
@@ -443,8 +451,9 @@ body {
 		color: #FFF;
 		text-transform: capitalize;
 		font-size: 18px;
-		padding: 16px 0 16px;
+		padding: 14px 0 18px;
 		margin: 0;
+		text-shadow: 0 -1px 1px #111;
 	}
 	&__edit {
 		position: absolute;
@@ -456,13 +465,12 @@ body {
 		border-radius: 3px;
 		padding-top: 4px;
 		cursor: pointer;
-		transition: box-shadow .2s ease-in, border .2s ease-in;
+		transition: background-color .2s ease-in, border .2s ease-in, box-shadow .2s ease-in;
+		box-shadow: inset 0 1px 1px #3f8abf;
 		&:hover {
-			box-shadow: inset -1px -1px 10px #fff;
-			border: 1px solid lighten(#033357, 25%);
-		}
-		&:hover &--path {
-			fill: #d93655;
+			box-shadow: none;
+			background-color: #d93655;
+			border: 1px solid #d93655;
 		}
 		&--path {
 			transition: fill .2s ease-out;
@@ -514,20 +522,22 @@ body {
 		height: 60px;
 		width: 94%;
 		cursor: pointer;
-		transition: box-shadow .2s ease-in, border .2s ease-in, color .2s ease-in;
+		transition: background-color .2s ease-in, border .2s ease-in, box-shadow .2s ease-in;
+		text-shadow: 0 -1px 1px #111;
+		box-shadow: inset 0 1px 1px #3f8abf;
 		&:hover {
-			box-shadow: inset -3px -3px 20px #fff;
-			border: 1px solid lighten(#033357, 25%);
-			color:  #d93655;
+			box-shadow: none;
+			background-color: #d93655;
+			border: 1px solid #d93655;
 		}
 	}
 }
 
 .am-brought {
 	position: absolute;
-	top: 0;
+	top: -3px;
 	bottom: 0;
-	left: 0;
+	left: 7px;
 	right: 3px;
 	background-color: rgba(229, 229, 229, 0.85);;
 	border-radius: 3px;
@@ -539,11 +549,14 @@ body {
 		left: 50%;
 		color: #6D6D6D;
 		font-size: 16px;
-		padding: 5px 0px 5px 13px;
+		padding: 7px 0px 5px 17px;
 		width: 70%;
 		background-color: #fff;
 		border-radius: 3px;
-		@include sub-content-font;
+		@include secondary-content-font;
+		@media screen and ( max-width: 1215px ) {
+			font-size: 13px;
+		}
 
 	}
 }
@@ -551,10 +564,10 @@ body {
 .am-menu {
 	background-color: rgba(217, 54, 85, 0.95);
 	position: absolute;
-	top: 0;
-	bottom: 0;
+	top: -1px;
+	bottom: -1px;
 	right: 5px;
-	left: 0;
+	left: 9px;
 	border-radius: 3px;
 	opacity: 0;
 	transition: opacity .2s ease-in;
@@ -562,7 +575,7 @@ body {
 	&__view {
 		position: absolute;
 		top: 23px;
-		left: 48px;
+		left: 32px;
 		color: $main-font-color;
 		background-color: #f7f7f7;
 		border-radius: 3px;
@@ -656,7 +669,7 @@ body {
 		height: 1px;
 		background-color: #f8ccd4;
 		position: absolute;
-		bottom: -15px;
+		bottom: -11px;
 		width: 100%;
 		box-shadow: 0 1px lighten(#f8ccd4, 50%);
 	}
@@ -665,7 +678,7 @@ body {
 		height: 1px;
 		background-color: #f8ccd4;
 		position: absolute;
-		bottom: -20px;
+		bottom: -16px;
 		width: 100%;
 		box-shadow: 0 1px lighten(#f8ccd4, 50%);
 	}
@@ -673,7 +686,7 @@ body {
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		left: -4px;
+		left: -10px;
 	}
 	&__description {
 		margin: 0 10px 0 120px;
@@ -682,14 +695,16 @@ body {
 		padding: 5px;
 		background-color: #FFF;
 		position: absolute;
-		left: 1px;
+		left: 6px;
+		top: 11px;
+		box-shadow: 0px 1px 6px #999;
 	}
 	&__content {
 		@include sub-title-font;
 		font-size: 18px;
 		line-height: 1.4;
 		color: #464545;
-		margin: 8px 0 0 0;
+		margin: 12px 0 0 5px;
 		&--more {
 			display: none;
 		}
@@ -701,12 +716,13 @@ body {
 		line-height: 2;
 		text-decoration: underline;
 		display: block;
+		padding-left: 3px;
 	}
 }
 
 
 .am-goods{
-	padding-top: 29px;
+	padding-top: 22px;
 	position: relative;
 	&:before {
 		content: "";
@@ -757,13 +773,16 @@ body {
 	&__cont {
 		min-height: 1200px;
 		margin-left: 5px;
+		padding-top: 19px;
 	}
 	&__container {
-		overflow-y: hidden ;
-		max-height: 534px;
+		overflow-y: hidden;
+		overflow-x: hidden;
+		max-height: 545px;
+		margin-left: -5px;
 	}
 	&__description {
-		margin-left: 85px;
+		margin-left: 106px;
 		padding-top: 5px;
 	}
 	&__background {
@@ -773,7 +792,8 @@ body {
 		padding-top: 4px;
 		position: absolute;
 		top: 0;
-		left: 0;
+		left: 12px;
+		box-shadow: 0px 1px 6px #999;
 	}
 	&__image {
 		width: 72px;
@@ -788,7 +808,7 @@ body {
 	&__sort {
 		@include sub-title-font;
 		font-size: 20px;
-		line-height: 1.3;
+		line-height: 1.1;
 		color: $secondary-content-color;
 		margin: 0;
 		@media screen and (max-width: 1069px) {
@@ -802,8 +822,9 @@ body {
 		@include secondary-content-font;
 		color: $main-font-color;
 		font-size: 16px;
-		line-height: 1.5;
+		line-height: 1.6;
 		margin: 0;
+		margin: 3px 0 0 0
 	}
 	&__seller {
 		@include secondary-content-font;
@@ -815,9 +836,13 @@ body {
 	&__clip{
 		position: absolute;
 		&--2 {
-			top: 50%;
-			transform: translateY(-50%);
-			left: -4px;
+			top: 26px;
+			left: -18px;
+			z-index: 3;
+		}
+		&--3 {
+			top: 18px;
+			left: -17px;
 			z-index: 3;
 		}
 	}
@@ -840,11 +865,11 @@ body {
 // footer styling
 .am-footer {
 	background: url(../img/header-bg.jpg);
-	overflow-x: scroll;
+	overflow-x: hidden;
 	&__logo {
-		padding: 51px 0 8px;
+		padding: 55px 0 6px;
 		display: block;
-		width: 288px;
+		width: 277px;
 		margin: 0 auto;
 	}
 	&__copyright {
@@ -861,7 +886,7 @@ body {
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
-	margin: 0 0 40px;
+	margin: 0 0 37px;
 	&__item {
 		position: relative;
 		display: inline-block;

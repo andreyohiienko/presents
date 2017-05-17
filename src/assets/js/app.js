@@ -5,13 +5,88 @@
 
 	$(document).ready( function () {
 
-		$('.am-goods__container').mCustomScrollbar();
-		$('.am-presents__container').mCustomScrollbar();
+		$('.am-goods__container').mCustomScrollbar({
+			mouseWheel:{ scrollAmount: 400 }
+		});
+		$('.am-presents__container').mCustomScrollbar({
+			scrollbarPosition: "outside",
+			mouseWheel:{ scrollAmount: 250 }
+		});
 
 		var showChar = 80;  // How many characters are shown by default
 		var ellipsestext = "...";
 		var moreRead = "Read More »";
 		var lessRead = "Read Less «";
+
+		$('.am-user').on('click', '.am-user__link', function(event) {
+
+			var a = "Read Less «";
+			var b = $(".am-user__link").html();
+
+			var contHeight = $(".am-goods__container").height();
+			var setContHeight;
+
+			var height = $('#mCSB_1').height();
+			var setHeight;
+
+			event.preventDefault();
+
+			
+
+			if ( $(".am-user__content").width() > 193 || $(".am-user__content").width() <= 167 ) {
+				
+				if ( a != b) {
+
+					setContHeight = contHeight + 50;
+					setHeight = height + 50;
+
+					$('.am-goods__container').css({
+						maxHeight: setContHeight,
+					});
+					$('#mCSB_1').css({
+						maxHeight: setHeight,
+					});
+				}
+
+				if ( a == b ) {
+					setContHeight = contHeight - 50;
+					setHeight = height - 50;
+
+					$('.am-goods__container').css({
+						maxHeight: setContHeight,
+					});
+					$('#mCSB_1').css({
+						maxHeight: setHeight,
+					});
+				}
+			} else {
+				if ( a != b) {
+
+					setContHeight = contHeight + 25;
+					setHeight = height + 25;
+
+					$('.am-goods__container').css({
+						maxHeight: setContHeight,
+					});
+					$('#mCSB_1').css({
+						maxHeight: setHeight,
+					});
+				}
+
+				if ( a == b ) {
+					setContHeight = contHeight - 25;
+					setHeight = height - 25;
+
+					$('.am-goods__container').css({
+						maxHeight: setContHeight,
+					});
+					$('#mCSB_1').css({
+						maxHeight: setHeight,
+					});
+				}
+			}
+			
+		});
 
 		$('.am-user__content').each(function() {
 			var content = $(this).html();
@@ -25,22 +100,6 @@
 				<span class="am-user__content--more">' + h + '</span><a href="#read" class="am-user__link">' + moreRead + '</a>';
 				$(this).html(html);
 			}
-		});
-
-		$('.am-user').on('click', '.am-user__link', function(event) {
-
-			var a = "Read Less «";
-			var b = $(".am-user__link").html();
-
-			event.preventDefault();
-
-			if ( a == b ) {
-				var where = $(this).attr('href');
-				$('body, html').animate({
-					scrollTop: $(where).offset().top,
-				}, 400);
-			}
-			
 		});
 
 		$(".am-user__link").click(function(){
@@ -59,10 +118,10 @@
 		$( ".am-goods__container" ).on('click', '.am-menu__options', function() {
 			if ($(this).parents('.am-goods__wrapper').hasClass('open')) {
 				$(this).parents('.am-goods__wrapper').removeClass('open');
-				$(this).parents('.am-goods__wrapper').animate({ marginBottom: "5px" }, 300 );
+				$(this).parents('.am-goods__wrapper').animate({ marginBottom: "23px" }, 300 );
 			} else {
 				$(this).parents('.am-goods__wrapper').addClass('open');
-				$(this).parents('.am-goods__wrapper').animate({marginBottom: "65px"}, 300);
+				$(this).parents('.am-goods__wrapper').animate({marginBottom: "72px"}, 300);
 			}
 			$(this).parents('.am-goods__wrapper').find('.am-menu__item--options').slideToggle( "slow" );
 		});
@@ -91,7 +150,7 @@
 		$('<div class="am-goods__wrapper" data-id = '+ id +'>\
 				<div class="am-goods__background">\
 					<img src="'+ image +'" alt="icon" class="am-goods__icon">\
-					<img src="assets/img/clip_1.png" alt="clip" class="am-goods__clip am-goods__clip--2">\
+					<img src="assets/img/clip_2.png" alt="clip" class="am-goods__clip am-goods__clip--2">\
 				</div>\
 				<div class="am-goods__description">\
 					<p class="am-goods__sort"> '+ type +' </p>\
